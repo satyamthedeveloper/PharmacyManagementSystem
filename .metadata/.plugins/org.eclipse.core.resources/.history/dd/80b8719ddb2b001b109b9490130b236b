@@ -1,0 +1,7 @@
+package com.cts.security.models;
+
+public class AuthenticationResponse {
+
+	private final String jwt;
+	
+}

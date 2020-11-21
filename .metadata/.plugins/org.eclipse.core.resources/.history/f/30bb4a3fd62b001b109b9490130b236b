@@ -1,0 +1,13 @@
+package com.cts.security.util;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class jwtUtil {
+
+	private String SECRET_KEY = "secret";
+	
+	public String extractUsername(String token) {
+		return extractClaim(token, Claims::getSubject);
+	}
+}

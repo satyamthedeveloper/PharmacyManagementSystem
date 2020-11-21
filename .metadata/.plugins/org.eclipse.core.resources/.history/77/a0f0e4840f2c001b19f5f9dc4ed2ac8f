@@ -1,0 +1,5 @@
+package com.cts.stock.services;
+
+public class StockServiceImpl implements StockService {
+
+}

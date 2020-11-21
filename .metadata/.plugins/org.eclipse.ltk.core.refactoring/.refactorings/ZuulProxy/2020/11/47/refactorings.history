@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.cts.zuul.filters.JwtFilter&apos; to &apos;JwtRequestFilter&apos;&#x0D;&#x0A;- Original project: &apos;ZuulProxy&apos;&#x0D;&#x0A;- Original element: &apos;com.cts.zuul.filters.JwtFilter&apos;&#x0D;&#x0A;- Renamed element: &apos;com.cts.zuul.filters.JwtRequestFilter&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;JwtFilter&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.cts.zuul.filters{JwtFilter.java[JwtFilter" matchStrategy="1" name="JwtRequestFilter" qualified="false" references="true" similarDeclarations="false" stamp="1605958000069" textual="false" version="1.0"/>
+</session>

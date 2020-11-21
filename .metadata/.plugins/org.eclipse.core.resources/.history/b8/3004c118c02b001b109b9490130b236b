@@ -1,0 +1,5 @@
+#Describes the port number on which server starts
+server.port=8762
+spring.application.name=zuul
+#adding custom info in info actuator
+info.app.name=Zuul Proxy

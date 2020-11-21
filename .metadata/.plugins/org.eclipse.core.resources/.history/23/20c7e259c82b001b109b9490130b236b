@@ -1,0 +1,15 @@
+package com.cts.stock.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(value = "/stock")
+public class StockController {
+
+	@GetMapping
+	String hello() {
+		return "Welcome to Pharmacy Stocks";
+	}
+}

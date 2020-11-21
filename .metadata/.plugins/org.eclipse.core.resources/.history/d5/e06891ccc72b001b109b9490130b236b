@@ -1,0 +1,5 @@
+package com.cts.stock.controller;
+
+public class StockController {
+
+}

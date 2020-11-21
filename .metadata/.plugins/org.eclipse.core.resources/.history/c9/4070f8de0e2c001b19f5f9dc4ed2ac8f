@@ -1,0 +1,5 @@
+package com.cts.user.services;
+
+public interface UserInterface {
+
+}

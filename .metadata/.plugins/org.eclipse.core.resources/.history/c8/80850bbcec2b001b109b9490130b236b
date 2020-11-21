@@ -1,0 +1,5 @@
+package com.cts.zuul.filters;
+
+public class JwtRequestFilter {
+
+}

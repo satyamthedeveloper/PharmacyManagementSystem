@@ -1,0 +1,9 @@
+package com.cts.zuul;
+
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+
+@SuppressWarnings("deprecation")
+@EnableWebSecurity
+public class SecurityConfigurer {
+
+}

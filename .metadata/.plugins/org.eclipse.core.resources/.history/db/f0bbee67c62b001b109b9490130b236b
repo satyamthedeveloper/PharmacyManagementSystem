@@ -1,0 +1,7 @@
+#Describes the port number on which server starts
+server.port=0
+#Application Name on Eureka
+spring.application.name=stock-ms
+#adding custom info in info actuator
+info.app.name=Stock Microservice
+

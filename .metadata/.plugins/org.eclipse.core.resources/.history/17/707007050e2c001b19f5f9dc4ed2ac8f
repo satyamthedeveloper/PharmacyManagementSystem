@@ -1,0 +1,5 @@
+package com.cts.patient.dao;
+
+public interface PatientDao {
+
+}
