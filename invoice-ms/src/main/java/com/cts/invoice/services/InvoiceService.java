@@ -1,8 +1,13 @@
 package com.cts.invoice.services;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
+import com.cts.invoice.exceptions.PatientNotPresentException;
+import com.cts.invoice.exceptions.StockNotPresentException;
+import com.cts.invoice.model.InvoiceEntry;
+
 public interface InvoiceService {
+
+	List<InvoiceEntry> getAllDetails() throws PatientNotPresentException, StockNotPresentException;
 
 }

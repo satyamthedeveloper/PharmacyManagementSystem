@@ -1,0 +1,15 @@
+package com.cts.invoice.model;
+
+import java.sql.Date;
+
+import lombok.Data;
+
+@Data
+public class InvoiceEntry {
+
+	String medicine;
+	String patient;
+	long invoiceNumber;	// common for one transaction
+	Date dateOfSale;
+	String modeOfPayment;
+}

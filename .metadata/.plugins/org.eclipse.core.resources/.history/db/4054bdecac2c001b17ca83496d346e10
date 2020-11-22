@@ -1,0 +1,18 @@
+package com.cts.ExchangeServiceProxy;
+
+import java.util.Optional;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.cts.invoice.exceptions.PatientNotPresentException;
+import com.cts.invoice.exceptions.StockNotPresentException;
+import com.cts.invoice.model.Stock;
+
+@FeignClient(name = "stock-ms")
+public interface StockExchangeServiceProxy {
+
+	@GetMapping("/{id}")
+	public Optional<Stock> getStockDetailsById(@PathVariable("id") long id) throws StockNotPresentException;
+}

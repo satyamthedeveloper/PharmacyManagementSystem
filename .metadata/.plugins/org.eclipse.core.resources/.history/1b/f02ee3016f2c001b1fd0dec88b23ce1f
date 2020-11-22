@@ -1,0 +1,32 @@
+package com.cts.patient.controller;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cts.patient.model.Patient;
+import com.cts.patient.services.PatientService;
+
+@RestController
+@RequestMapping("/")
+public class PatientController {
+
+	@Autowired
+	private PatientService patientService;
+	
+	// Returns list of all patients
+	@GetMapping
+	public ResponseEntity<?> getAllPatientDetails() {
+		ArrayList<Patient> patientList = patientService.getAllPatientDetails();
+		if(patientList.isEmpty()) {
+			return new ResponseEntity<String>("No Patient Details Available", HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<ArrayList<Patient>>(patientList, HttpStatus.OK);
+	}
+}

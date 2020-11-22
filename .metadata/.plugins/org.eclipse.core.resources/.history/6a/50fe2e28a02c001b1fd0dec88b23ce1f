@@ -1,0 +1,5 @@
+package com.cts.invoice.exceptions;
+
+public class PatientNotPresentException extends Exception {
+
+}

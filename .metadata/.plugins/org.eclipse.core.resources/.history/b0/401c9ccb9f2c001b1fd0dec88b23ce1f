@@ -1,0 +1,46 @@
+package com.cts.invoice.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cts.invoice.dao.InvoiceDao;
+import com.cts.invoice.model.Invoice;
+import com.cts.invoice.model.InvoiceEntry;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
+public class InvoiceServiceImpl implements InvoiceService{
+
+	@Autowired
+	private InvoiceDao invoiceDao;
+
+	@Override
+	public void getAllDetails() {
+		log.debug("START");
+		
+		List<Invoice> allEntries = invoiceDao.findAll();
+		List<InvoiceEntry> returnList = new ArrayList<InvoiceEntry>();
+		if(!allEntries.isEmpty()) {
+			
+			for(int i=0; i<allEntries.size(); i++) {
+				Invoice invoice = allEntries.get(i);
+				InvoiceEntry invoiceEntry = new InvoiceEntry();
+				invoiceEntry.setDateOfSale(invoice.getDateOfSale());
+				invoiceEntry.setInvoiceNumber(invoice.getInvoiceNumber());
+				invoiceEntry.setModeOfPayment(invoice.getModeOfPayment());
+				
+				log.debug(invoice.getId() + " initailaised");
+				
+				
+				
+			}
+			
+		}
+		
+	}
+}

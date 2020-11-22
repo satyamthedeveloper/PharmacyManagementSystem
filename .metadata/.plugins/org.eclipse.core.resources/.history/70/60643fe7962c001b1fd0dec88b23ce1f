@@ -1,0 +1,42 @@
+package com.cts.stock.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.PositiveOrZero;
+
+import org.hibernate.validator.constraints.UniqueElements;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
+@Entity
+@Data
+@Slf4j
+public class Stock {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	long m_id;
+	@UniqueElements
+	String medicineName;
+	@PositiveOrZero
+	int countStock;
+	@JsonFormat(shape = Shape.STRING, pattern = "dd/MM/yyyy")
+	Date dateOfManufacturing;
+	Date dateOfExpiry;
+	String Manufacturer;
+	
+	public Stock() {
+		super();
+		log.info("Medicine Created");
+	}
+	
+	
+}

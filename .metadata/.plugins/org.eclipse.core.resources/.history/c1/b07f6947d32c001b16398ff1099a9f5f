@@ -1,0 +1,23 @@
+#Describes the port number on which server starts
+server.port=0
+#Application Name on Eureka
+spring.application.name=invoice-ms
+logging.level.org.springframework.web== debug
+
+#adding custom info in info actuator
+info.app.name=Invoice Microservice
+#get unique id of instance registered with eureka
+eureka.instance.instance-id=${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+spring.datasource.url=jdbc:mysql://localhost:3306/pharmacy_db
+spring.datasource.username=root
+spring.datasource.password=root
+
+#Used to initialize the database. 
+#The create-drop option will create any tables mapped to JPA entities during application startup
+# and drop the tables at shutdown.
+#Use create-drop if you want to perform database cleanup
+#spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.hibernate.ddl-auto=update
+#Enables logging of sql statements
+spring.jpa.show-sql=true

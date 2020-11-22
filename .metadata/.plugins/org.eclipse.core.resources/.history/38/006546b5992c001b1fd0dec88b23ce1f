@@ -1,0 +1,8 @@
+package com.cts.ExchangeServiceProxy;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name = "stock-ms")
+public interface StockExchangeServiceProxy {
+
+}

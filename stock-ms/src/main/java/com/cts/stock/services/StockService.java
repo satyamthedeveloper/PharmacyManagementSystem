@@ -1,8 +1,16 @@
 package com.cts.stock.services;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
 
-@Service
+import com.cts.stock.model.Stock;
+
 public interface StockService {
+
+	List<Stock> getAllStockDetails();
+
+	Optional<Stock> getStockDetailsById(long id);
+
+	boolean addStock(Stock stock);
 
 }

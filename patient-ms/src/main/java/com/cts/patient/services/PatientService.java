@@ -1,8 +1,16 @@
 package com.cts.patient.services;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
 
-@Service
+import com.cts.patient.model.Patient;
+
 public interface PatientService {
+
+	List<Patient> getAllPatientDetails();
+
+	Optional<Patient> getPatientDetailsById(long id);
+
+	boolean addPatient(Patient patient);
 
 }

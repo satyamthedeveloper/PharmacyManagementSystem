@@ -1,0 +1,5 @@
+package com.cts.ExchangeServiceProxy;
+
+public interface StockExchangeServiceProxy {
+
+}

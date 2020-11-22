@@ -1,0 +1,10 @@
+package com.cts.invoice.services;
+
+import com.cts.invoice.exceptions.PatientNotPresentException;
+import com.cts.invoice.exceptions.StockNotPresentException;
+
+public interface InvoiceService {
+
+	void getAllDetails() throws PatientNotPresentException, StockNotPresentException;
+
+}

@@ -1,0 +1,9 @@
+package com.cts.ExchangeServiceProxy;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name = "patient-ms")
+public interface PatientExchangeServiceProxy {
+
+	
+}

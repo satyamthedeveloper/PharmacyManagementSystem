@@ -1,0 +1,33 @@
+package com.cts.invoice.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.cts.invoice.dao.InvoiceDao;
+import com.cts.invoice.model.Invoice;
+import com.cts.invoice.model.InvoiceEntry;
+
+public class InvoiceServiceImpl implements InvoiceService{
+
+	@Autowired
+	private InvoiceDao invoiceDao;
+
+	@Override
+	public void getAllDetails() {
+		
+		List<Invoice> allEntries = invoiceDao.findAll();
+		List<InvoiceEntry> returnList = new ArrayList<InvoiceEntry>();
+		if(!allEntries.isEmpty()) {
+			
+			for(int i=0; i<allEntries.size(); i++) {
+				Invoice invoice = allEntries.get(i);
+				
+				
+			}
+			
+		}
+		
+	}
+}

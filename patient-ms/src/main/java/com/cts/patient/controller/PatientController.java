@@ -1,13 +1,65 @@
 package com.cts.patient.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cts.patient.model.Patient;
 import com.cts.patient.services.PatientService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
+@RequestMapping("/")
+@Slf4j
 public class PatientController {
 
 	@Autowired
 	private PatientService patientService;
+	
+	// Returns list of all patients
+	@GetMapping
+	public ResponseEntity<?> getAllPatientDetails() {
+		log.debug("START");
+		List<Patient> patientList = patientService.getAllPatientDetails();
+		log.debug("patientList Data Received");
+		if(patientList.isEmpty()) {
+			return new ResponseEntity<String>("No Patient Details Available", HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<List<Patient>>(patientList, HttpStatus.OK);
+	}
+	
+	// Returns patient details of given id if exists
+	@GetMapping("{id}")
+	public ResponseEntity<?> getPatientDetailsById(@PathVariable("id") long id) {
+		log.debug("START");
+		Optional<Patient> patient = patientService.getPatientDetailsById(id);
+		log.debug("patient Data Received");
+		if(!patient.isPresent()) {
+			return new ResponseEntity<String>("Patient Id does not exist.", HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<Optional<Patient>>(patient, HttpStatus.OK);
+	}
+	
+	// Add new Patient
+	@PostMapping()
+	public ResponseEntity<?> addPatientDetails(@RequestBody Patient patient){
+		log.debug("START");
+		boolean success = patientService.addPatient(patient);
+		log.debug("Service implemented");
+		if(!success)
+			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 }

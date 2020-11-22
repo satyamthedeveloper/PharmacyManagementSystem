@@ -1,0 +1,9 @@
+package com.cts.invoice.model;
+
+import lombok.Data;
+
+@Data
+public class InvoiceEntry {
+
+	
+}
