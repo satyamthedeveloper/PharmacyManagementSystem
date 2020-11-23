@@ -1,0 +1,5 @@
+package com.cts.stock.dao;
+
+public class StockDaoImpl {
+
+}

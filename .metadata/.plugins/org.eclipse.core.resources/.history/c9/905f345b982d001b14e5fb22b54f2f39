@@ -1,0 +1,20 @@
+package com.cts.stock;
+
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.cts.stock.dao.StockDao;
+import com.cts.stock.services.StockService;
+
+public class stockServiceTest {
+
+	@Mock
+	StockService stockServiceMock;
+	
+	@InjectMocks
+	StockDao stockMDaoMock;
+	
+	
+}

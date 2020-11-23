@@ -1,0 +1,17 @@
+package com.cts.stock;
+
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import com.cts.stock.dao.StockDao;
+import com.cts.stock.services.StockService;
+
+public class stockServiceTest {
+
+	@Mock
+	StockService stockServiceMock;
+	
+	@InjectMocks
+	StockDao stockMDaoMock;
+	
+	
+}

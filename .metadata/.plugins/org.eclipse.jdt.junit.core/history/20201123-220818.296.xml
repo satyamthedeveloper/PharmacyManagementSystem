@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StockMsApplicationTests" project="stock-ms" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.cts.stock.StockMsApplicationTests" time="0.173" displayname="StockMsApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.cts.stock.StockMsApplicationTests]">
+    <testcase name="testGetStockDetailsById" classname="com.cts.stock.StockMsApplicationTests" time="0.159" displayname="testGetStockDetailsById()" uniqueid="[engine:junit-jupiter]/[class:com.cts.stock.StockMsApplicationTests]/[method:testGetStockDetailsById()]"/>
+    <testcase name="testGetAllStockDetails" classname="com.cts.stock.StockMsApplicationTests" time="0.014" displayname="testGetAllStockDetails()" uniqueid="[engine:junit-jupiter]/[class:com.cts.stock.StockMsApplicationTests]/[method:testGetAllStockDetails()]"/>
+  </testsuite>
+</testrun>

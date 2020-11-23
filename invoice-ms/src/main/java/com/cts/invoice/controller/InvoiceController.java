@@ -13,6 +13,8 @@ import com.cts.invoice.exceptions.PatientNotPresentException;
 import com.cts.invoice.exceptions.StockNotPresentException;
 import com.cts.invoice.model.InvoiceEntry;
 import com.cts.invoice.services.InvoiceService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,15 +25,25 @@ public class InvoiceController {
 
 	@Autowired
 	private InvoiceService invoiceService;
-	
+
 	// returns every detail available
 	@GetMapping
-	public ResponseEntity<?> getAllDetails() throws PatientNotPresentException, StockNotPresentException{
+	@HystrixCommand(fallbackMethod = "fallback_message", commandProperties = {
+			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000") })
+	public ResponseEntity<?> getAllDetails()
+			throws PatientNotPresentException, StockNotPresentException, InterruptedException {
 		log.debug("START");
+		Thread.sleep(3000);
+
 		List<InvoiceEntry> results = invoiceService.getAllDetails();
-		if(results.isEmpty())
+		if (results.isEmpty())
 			return new ResponseEntity<String>("Database is Empty", HttpStatus.NO_CONTENT);
-		
+
 		return new ResponseEntity<List<InvoiceEntry>>(results, HttpStatus.OK);
+	}
+	
+	@SuppressWarnings("unused")
+	private ResponseEntity<?> fallback_message(){
+		return new ResponseEntity<String>("Request Fails. It takes long time to response.",HttpStatus.OK);
 	}
 }
